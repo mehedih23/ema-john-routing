@@ -1,0 +1,14 @@
+.placeOrder-btn{
+        width: 100%;
+        margin-top: 10px;
+        padding: 6px 4px;
+        border : 1px solid #ccc;
+        font-weight: bold;
+}
+
+   
+.placeOrder-btn:hover{
+    color: rgb(244 63 94);
+    border: 1px solid rgb(244 63 94);
+    transition: 0.3s ease-in;
+}

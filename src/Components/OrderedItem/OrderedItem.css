@@ -1,0 +1,19 @@
+.trashBtn{
+    position: relative; 
+    width: 40px;
+    height: 40px;
+    background-color: rgb(244 63 94);
+    border-radius: 50%;
+}
+.trashIcon{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s;
+}
