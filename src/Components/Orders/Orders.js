@@ -1,16 +1,16 @@
 import './Orders.css';
-import React, { useState } from 'react'
 import useProducts from '../../Hooks/useProducts/useProducts';
 import useCart from '../../Hooks/useCart/useCart';
 import Cart from '../Cart/Cart';
 import { Link } from 'react-router-dom';
 import OrderedItem from '../OrderedItem/OrderedItem';
 import { removeFromDb } from '../../utilities/fakedb';
+import { deleteShoppingCart } from '../../utilities/fakedb';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
 
 const Orders = () => {
-    const [products, setProducts] = useProducts();
+    const [products] = useProducts();
     const [cart, setCart] = useCart(products);
 
     const handleRemoveItem = (id) => {
@@ -18,6 +18,12 @@ const Orders = () => {
         setCart([...newCart]);
         removeFromDb(id);
     }
+
+    const handlePlaceOrder = () => {
+        setCart([]);
+        deleteShoppingCart();
+    }
+
     return (
         <div className='container mx-auto'>
             <h1 className='text-4xl lg:text-6xl text-center my-4'>Preview Orders</h1>
@@ -35,7 +41,7 @@ const Orders = () => {
                 <div className='p-4'>
                     <Cart cart={cart}>
                         <Link to='/inventory'>
-                            <button className='placeOrder-btn'>
+                            <button onClick={handlePlaceOrder} className='placeOrder-btn'>
                                 Place Order
                                 <FontAwesomeIcon style={{ marginLeft: '8px' }} icon={faCreditCard} />
                             </button>
