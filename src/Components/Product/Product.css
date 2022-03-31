@@ -1,0 +1,6 @@
+.addToCart:hover{
+cursor: pointer;
+color: rgb(244 63 94);
+border: 1px solid rgb(244 63 94);
+transition: .3s ease-in;
+}
